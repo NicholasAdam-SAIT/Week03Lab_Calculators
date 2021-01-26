@@ -17,9 +17,14 @@
         <br>
         <form method ="POST" action ="age">
             <label>Enter your age:</label>
-            <input type ="text" name = "Age" value ="${oldAge}">
+            <input type ="text" name = "Age" value ="${userAge}">
             <br>
             <input type ="submit" value ="Age next birthday">
+            <br>
+            <p>${newAge}</p>
+            <p>${errorMessage1}</p>
+            <p>${errorMessage2}</p>
+            
             
     </body>
 </html>
