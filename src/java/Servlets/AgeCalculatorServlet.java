@@ -14,15 +14,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class AgeCalculatorServlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
 
     
     @Override
@@ -45,7 +36,7 @@ public class AgeCalculatorServlet extends HttpServlet {
         if (!(userAge.isEmpty())){
             try {
                 int ageAsInt = Integer.parseInt(userAge);
-                request.setAttribute("newAge", ageAsInt + 1);
+                request.setAttribute("newAge", "Your age next birthday will be " + (ageAsInt + 1));
                 getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp")
                 .forward(request, response); 
             }
