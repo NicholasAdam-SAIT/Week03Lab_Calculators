@@ -17,7 +17,7 @@
         <br>
         <form method ="POST" action ="age">
             <label>Enter your age:</label>
-            <input type ="number" name = "Age" value ="${oldAge}">
+            <input type ="text" name = "Age" value ="${oldAge}">
             <br>
             <input type ="submit" value ="Age next birthday">
             
