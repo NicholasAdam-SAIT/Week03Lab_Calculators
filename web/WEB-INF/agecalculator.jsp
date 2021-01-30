@@ -22,7 +22,7 @@
             <p>${newAge}</p>
             <p>${errorMessage1}</p>
             <p>${errorMessage2}</p>
-            <a href =" ">Age Calculator</a>
+            <a href ="/Week3Lab_Calculators/arithmetic">Arithmetic Calculator</a>
             
             
     </body>
