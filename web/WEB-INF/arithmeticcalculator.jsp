@@ -13,5 +13,23 @@
     </head>
     <body>
         <h1>Arithmetic Calculator</h1>
+        
+        <form method ="POST" action ="arithmetic">
+            <label>First:</label>
+            <input type ="text" name ="firstnum" value = "${firstNum}">
+            <br>
+            <label>Second:</label>
+            <input type ="text" name ="secondnum" value = "${secondNum}">
+            <br>
+            <input type ="submit" value="+">
+            <!--
+            <input type="submit" value ="-">
+            <input type ="submit" value ="*">
+            <input type ="submit" value ="%">
+            -->
+            <br>
+            <p >Result: ${result}</p>
+            <br>
+            <a href ="/Week3Lab_Calculators/age">Age Calculator</a>
     </body>
 </html>

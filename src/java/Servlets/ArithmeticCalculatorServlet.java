@@ -22,6 +22,8 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        request.setAttribute("result", "---");
         getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp")
             .forward(request, response);
         
@@ -30,6 +32,36 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        String first = request.getParameter("firstnum");
+        String second = request.getParameter("secondnum");
+        
+        request.setAttribute("firstNum", first);
+        request.setAttribute("secondNum", second);
+        
+        if (first.isEmpty() || second.isEmpty())
+        {
+           request.setAttribute("result", "invalid");
+                getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp")
+                        .forward(request, response); 
+        }
+        else
+        {
+            try {
+                int firstNumber = Integer.parseInt(first);
+                int secondNumber = Integer.parseInt(second);
+                
+                //get the value of the submit button used
+            }
+            catch (NumberFormatException nfe)
+            {
+                request.setAttribute("result", "invalid");
+                getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp")
+                        .forward(request, response);
+                
+            }
+        }
+        
         
     }
 
