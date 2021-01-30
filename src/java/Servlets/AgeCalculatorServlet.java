@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author 840018
+ * @author Nicholas Adam    SID#:000840018
+ * January 29, 2021
  */
 public class AgeCalculatorServlet extends HttpServlet {
 

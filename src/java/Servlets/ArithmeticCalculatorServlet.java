@@ -14,7 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author 840018
+ * @author Nicholas Adam    SID#:000840018
+ * January 29, 2021
  */
 public class ArithmeticCalculatorServlet extends HttpServlet {
 
@@ -23,6 +24,7 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        //Assign a default value to the "result" attribute
         request.setAttribute("result", "---");
         getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp")
             .forward(request, response);
@@ -33,12 +35,15 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        //get parameters for both of the text boxes
         String first = request.getParameter("firstnum");
         String second = request.getParameter("secondnum");
         
+        //set parameters as attributes so they can be manipulated
         request.setAttribute("firstNum", first);
         request.setAttribute("secondNum", second);
         
+        //Check to see if either text box is empty, inform the user of invalid input if so
         if (first.isEmpty() || second.isEmpty())
         {
            request.setAttribute("result", "invalid");
@@ -48,6 +53,7 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
         else
         {
             try {
+                //convert the number string so arithmetic can be performed
                 int firstNumber = Integer.parseInt(first);
                 int secondNumber = Integer.parseInt(second);
                 
@@ -58,27 +64,33 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
                 
                 switch(opUsed)
                 {
-                    
+                    //If "+" is entered, add the two numbers together
                     case "+":
                         request.setAttribute("result", firstNumber + secondNumber);
                         break;
                         
+                    //If "-" is entered, subtract the two numbers
                     case "-":
                         request.setAttribute("result", firstNumber - secondNumber);
                         break;
                         
+                    //If "*" is entered, multiply the two numbers together
                     case "*":
                         request.setAttribute("result", firstNumber * secondNumber);
                         break;
                         
+                    //If "%" is entered, perform modulus arithmetic on the two numbers.
                     case "%":
                         request.setAttribute("result", firstNumber % secondNumber);
                         break;
                 }
+                //Return the result to the webpage so it can be displayed
                 getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp")
                         .forward(request, response);
                 
             }
+            
+            //Inform the user of invalid input if they enter non-number values
             catch (NumberFormatException nfe)
             {
                 request.setAttribute("result", "invalid");
