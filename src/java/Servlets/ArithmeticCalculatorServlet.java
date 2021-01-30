@@ -52,6 +52,32 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
                 int secondNumber = Integer.parseInt(second);
                 
                 //get the value of the submit button used
+                String opUsed = request.getParameter("operation");
+                
+                //branch based on the value of the submit button
+                
+                switch(opUsed)
+                {
+                    
+                    case "+":
+                        request.setAttribute("result", firstNumber + secondNumber);
+                        break;
+                        
+                    case "-":
+                        request.setAttribute("result", firstNumber - secondNumber);
+                        break;
+                        
+                    case "*":
+                        request.setAttribute("result", firstNumber * secondNumber);
+                        break;
+                        
+                    case "%":
+                        request.setAttribute("result", firstNumber % secondNumber);
+                        break;
+                }
+                getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp")
+                        .forward(request, response);
+                
             }
             catch (NumberFormatException nfe)
             {

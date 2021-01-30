@@ -21,12 +21,11 @@
             <label>Second:</label>
             <input type ="text" name ="secondnum" value = "${secondNum}">
             <br>
-            <input type ="submit" value="+">
-            <!--
-            <input type="submit" value ="-">
-            <input type ="submit" value ="*">
-            <input type ="submit" value ="%">
-            -->
+            
+            <input type ="submit" name ="operation" value="+">
+            <input type="submit" name ="operation"value ="-">
+            <input type ="submit" name ="operation" value ="*">
+            <input type ="submit" name ="operation" value ="%">
             <br>
             <p >Result: ${result}</p>
             <br>
